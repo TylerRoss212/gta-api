@@ -16,12 +16,6 @@
     <properties>
         <java.version>18</java.version>
     </properties>
-    <distributionManagement>
-        <repository>
-            <id>gta-api1</id>
-            <url>https://git.heroku.com/gta-api1.git</url>
-        </repository>
-    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
