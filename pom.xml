@@ -8,7 +8,7 @@
         <version>2.7.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>com.gtaapi</groupId>
     <artifactId>gta-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>gta-api</name>
@@ -16,6 +16,12 @@
     <properties>
         <java.version>18</java.version>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>gta-api1</id>
+            <url>https://git.heroku.com/gta-api1.git</url>
+        </repository>
+    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
