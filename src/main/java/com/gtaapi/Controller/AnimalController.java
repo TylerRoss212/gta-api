@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class AnimalController {
@@ -25,5 +26,10 @@ public class AnimalController {
     @GetMapping("/api/animals/findAll")
     public ResponseEntity<List<Animal>> findAll() {
         return new ResponseEntity<>(animalService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/api/animals/findAllWithoutId")
+    public ResponseEntity<List<Animal>> findAllWithoutId() {
+        return new ResponseEntity<>(animalService.findAllWithoutId(), HttpStatus.OK);
     }
 }
