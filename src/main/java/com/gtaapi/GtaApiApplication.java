@@ -24,6 +24,7 @@ public class GtaApiApplication {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**").allowedOrigins(appConfig.getUrl());
+                registry.addMapping("/**").allowedOrigins(appConfig.getUrl2());
             }
         };
     }
