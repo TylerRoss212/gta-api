@@ -9,14 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class testapi {
 
-    private final AppConfig appConfig;
-
     @GetMapping("/api/hello")
-    public Person getHello() {
-        Person person = new Person();
-        person.setId(1L);
-        person.setName("Tyler");
-        return person;
-
+    public String getHello() {
+        return "Hello";
     }
 }
