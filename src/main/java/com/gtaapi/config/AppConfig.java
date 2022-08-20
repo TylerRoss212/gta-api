@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 @Getter @Setter
 public class AppConfig {
 
-    private String url;
-    private String url2;
+    private String urls;
+    private String zone;
+    private String startDate;
 }

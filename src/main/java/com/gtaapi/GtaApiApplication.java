@@ -23,7 +23,10 @@ public class GtaApiApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/api/**").allowedOrigins(appConfig.getUrl(), appConfig.getUrl2());
+                String[] urls = appConfig.getUrls().split(",");
+                for (String url : urls) {
+                    registry.addMapping("/api/**").allowedOrigins(url);
+                }
             }
         };
     }

@@ -2,6 +2,7 @@ package com.gtaapi.Controller;
 
 import com.gtaapi.Model.Animal;
 import com.gtaapi.Service.AnimalService;
+import com.gtaapi.config.AppConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,14 +10,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class AnimalController {
 
     @Autowired
     private AnimalService animalService;
+
+    @GetMapping("/api/animals/getNumber")
+    public Long getNumber() {
+        return animalService.getNumber();
+    }
 
     @GetMapping("/api/animals/findById/{id}")
     public ResponseEntity<Animal> findById(@PathVariable long id) {
