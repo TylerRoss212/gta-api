@@ -3,9 +3,7 @@ package com.gtaapi.Controller;
 import com.gtaapi.Model.Animal;
 import com.gtaapi.Service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +31,10 @@ public class AnimalController {
     @GetMapping("/api/animals/findAllWithoutId")
     public List<Animal> findAllWithoutId() {
         return animalService.findAllWithoutId();
+    }
+
+    @PostMapping("/api/animals/findByName")
+    public Animal findByName(@RequestBody String name) {
+        return animalService.findByName(name);
     }
 }

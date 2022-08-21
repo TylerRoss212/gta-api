@@ -13,6 +13,7 @@ public class Animal {
 
     @Id
     @GeneratedValue
+    @Column(unique = true)
     private long id;
 
     @Column(nullable = false)

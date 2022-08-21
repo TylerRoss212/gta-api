@@ -21,4 +21,8 @@ public class AnimalDAO implements IAnimalDAO {
     public List<Animal> findAll() {
         return entityManager.createNativeQuery("SELECT * FROM animals", Animal.class).getResultList();
     }
+
+    public List<Animal> findByName(String name) {
+        return entityManager.createNativeQuery("SELECT * FROM animals WHERE name='" + name + "'", Animal.class).getResultList();
+    }
 }

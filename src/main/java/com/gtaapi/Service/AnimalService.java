@@ -45,4 +45,13 @@ public class AnimalService {
         }
         return animals;
     }
+
+    public Animal findByName(String name) {
+        List<Animal> animals = animalDAO.findByName(name);
+        if (animals.size() >  0) {
+            return animals.get(0);
+        } else {
+            return null;
+        }
+    }
 }

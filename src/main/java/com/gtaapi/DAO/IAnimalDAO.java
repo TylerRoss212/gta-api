@@ -11,4 +11,6 @@ public interface IAnimalDAO {
     public Animal findById(long id);
 
     public List<Animal> findAll();
+
+    public List<Animal> findByName(String name);
 }
