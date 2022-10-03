@@ -25,7 +25,7 @@ public class GtaApiApplication {
             public void addCorsMappings(CorsRegistry registry) {
             String[] urls = appConfig.getUrls().split(",");
             for (String url : urls) {
-                registry.addMapping("/**").allowedOrigins(url);
+                registry.addMapping("/api/**").allowedOrigins(url);
             }
             }
         };
