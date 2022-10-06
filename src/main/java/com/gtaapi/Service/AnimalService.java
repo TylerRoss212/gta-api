@@ -47,6 +47,10 @@ public class AnimalService {
     }
 
     public Animal findByName(String name) {
+        if (name.length() > 100) {
+            return null;
+        }
+        name.replace("'", "''");
         List<Animal> animals = animalDAO.findByName(name);
         if (animals.size() >  0) {
             return animals.get(0);
