@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @Service
 public class AnimalService {
@@ -27,7 +28,11 @@ public class AnimalService {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MM yyyy");
         LocalDate ldt = LocalDate.parse(appConfig.getStartDate(), dtf);
         LocalDate ldt1 = LocalDate.now(ZoneId.of(appConfig.getZone()));
-        return ldt.until(ldt1, ChronoUnit.DAYS);
+        Long seed = ldt.until(ldt1, ChronoUnit.DAYS);
+        Random rand = new Random(seed);
+        Long number = Math.abs(rand.nextLong());
+        number %= 63L;
+        return number;
     }
 
     public Animal findById(long id) {
