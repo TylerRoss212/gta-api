@@ -1,9 +1,8 @@
+FROM maven:3.8.6-jdk-18
+COPY . .
+RUN mvn clean package -Pprod -DskipTests
+
 FROM openjdk:18-jdk-alpine
-RUN ls -a
-RUN find ./home -name mvnw
-RUN ls -a ./home
-RUN dos2unix mvnw
-RUN ./mvnw install -Pprod
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+COPY --from=build /target/gta-api-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
