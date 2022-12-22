@@ -1,4 +1,5 @@
 FROM openjdk:18-jdk-alpine
+RUN ls -a
 RUN dos2unix mvnw
 RUN ./mvnw install -Pprod
 ARG JAR_FILE=target/*.jar
