@@ -1,4 +1,4 @@
-FROM maven:3.8.6-jdk-18
+FROM maven:3.8.6-jdk-11-slim
 COPY . .
 RUN mvn clean package -Pprod -DskipTests
 
